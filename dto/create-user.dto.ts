@@ -1,5 +1,5 @@
 import { IsEmail,IsString,IsNotEmpty,IsEnum } from 'class-validator';
-
+import { Role } from '../role.enum';
 export class CreateUserDto {
 
     @IsString()
@@ -9,8 +9,8 @@ export class CreateUserDto {
     @IsEmail()
     email: string;
 
-    @IsEnum([ "INTERN","ENGINEER","ADMIN"],{
+    @IsEnum(Role,{
         message: "Valid role required"
     })
-    role: "INTERN" | "ENGINEER" | "ADMIN";
+    role: Role;
 }
